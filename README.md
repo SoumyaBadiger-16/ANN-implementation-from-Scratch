@@ -1,51 +1,50 @@
 # Artificial Neural Network (ANN) Implementation from Scratch
 
+
 ## 🎯 Problem Statement
 
 The objective of this project is to understand and implement an Artificial Neural Network (ANN) from scratch using Python.
 
-An Artificial Neural Network is a machine learning model inspired by the structure and functioning of biological neural networks. It consists of interconnected neurons arranged in layers that learn patterns from data.
+An Artificial Neural Network is a machine learning model inspired by biological neural networks. It consists of interconnected neurons organized into layers that learn patterns and relationships from data.
 
-This project focuses on understanding the internal working of an ANN, including forward propagation, activation functions, loss calculation, backpropagation, and weight updates during training.
+This project focuses on understanding the fundamental working principles of neural networks, including forward propagation, activation functions, loss calculation, backpropagation, and weight updates during training.
 
-The implementation is intended to demonstrate the mathematical foundations of neural networks rather than relying entirely on high-level deep learning frameworks.
+The goal is to understand the mathematical concepts behind neural networks and their learning process through practical implementation.
 
 ## 📝 Steps
 
 1. **Import Libraries:** Import the Python libraries required for numerical computation, data processing, and visualization.
 2. **Load the Dataset:** Load and inspect the dataset used for training and testing.
-3. **Data Preprocessing:** Handle missing values if necessary, encode categorical variables, and scale numerical features where appropriate.
-4. **Initialize Parameters:** Initialize weights and biases for the network layers.
+3. **Data Preprocessing:** Prepare the data by handling missing values, encoding categorical features if necessary, and scaling numerical features where appropriate.
+4. **Initialize Weights and Biases:** Initialize the network parameters before training.
 5. **Forward Propagation:** Calculate weighted sums and apply activation functions to generate predictions.
-6. **Loss Calculation:** Measure the difference between predicted and actual outputs using an appropriate loss function.
-7. **Backpropagation:** Calculate gradients of the loss with respect to the model parameters using the chain rule.
-8. **Update Weights and Biases:** Use gradient descent or another specified optimization method to improve the network parameters.
-9. **Train the Network:** Repeat the forward and backward propagation steps over multiple training iterations or epochs.
-10. **Evaluate the Model:** Evaluate performance using appropriate metrics for the task.
+6. **Calculate Loss:** Measure the difference between predicted and actual outputs using an appropriate loss function.
+7. **Backpropagation:** Calculate gradients using the chain rule to determine how the network parameters should change.
+8. **Update Parameters:** Update weights and biases using gradient descent or the optimizer implemented in the notebook.
+9. **Train the Network:** Repeat the training process over multiple iterations or epochs.
+10. **Evaluate the Model:** Evaluate the trained network using appropriate performance metrics.
 
 ## 💻 Implementation
 
-The notebook demonstrates the implementation of an Artificial Neural Network from scratch.
+### 1. ANN Architecture
 
-### 1. Network Architecture
+A typical Artificial Neural Network consists of the following layers:
 
-A typical ANN contains:
-
-- **Input Layer:** Receives the input features.
-- **Hidden Layer(s):** Learns patterns and relationships in the data.
-- **Output Layer:** Produces the final prediction.
+- **Input Layer:** Receives input features from the dataset.
+- **Hidden Layer(s):** Learns patterns and complex relationships using weighted connections and activation functions.
+- **Output Layer:** Produces predictions based on the learning task.
 
 ### 2. Forward Propagation
 
-Forward propagation passes the input through the network.
+Forward propagation passes input data through the network to calculate the output.
 
-For a layer, the weighted sum is calculated as:
+The weighted sum is calculated as:
 
 \[
 Z = XW + b
 \]
 
-The activation function transforms the weighted sum:
+The activation function is then applied:
 
 \[
 A = f(Z)
@@ -53,38 +52,45 @@ A = f(Z)
 
 Where:
 
-- \(X\) represents the input or previous layer's activations.
+- \(X\) represents the input data or previous layer activations.
 - \(W\) represents the weights.
 - \(b\) represents the bias.
 - \(f\) represents the activation function.
+- \(A\) represents the output of the layer.
 
 ### 3. Activation Functions
 
 Activation functions introduce non-linearity into the network.
 
-Common examples include:
+Common activation functions include:
 
-- **Sigmoid:** Often used for binary classification outputs.
-- **ReLU:** Commonly used in hidden layers.
-- **Softmax:** Commonly used for multiclass classification outputs.
+- **Sigmoid:** Maps values between 0 and 1.
+- **ReLU:** Returns zero for negative inputs and the input itself for positive inputs.
+- **Softmax:** Converts output scores into a probability distribution for multiclass classification.
 
-The appropriate activation function depends on the network architecture and task.
+The functions used in the actual implementation depend on the network architecture and prediction task.
 
 ### 4. Loss Function
 
-The loss function measures the difference between the network's predictions and the actual target values.
+The loss function measures the difference between the predicted output and the actual target.
 
-Examples include binary cross-entropy for binary classification, categorical cross-entropy for multiclass classification, and mean squared error for regression.
+Common examples include:
+
+- Binary cross-entropy for binary classification.
+- Categorical cross-entropy for multiclass classification.
+- Mean squared error for regression.
 
 ### 5. Backpropagation
 
-Backpropagation calculates gradients that indicate how the weights and biases contribute to the loss.
+Backpropagation calculates the gradients of the loss with respect to the network's weights and biases using the chain rule.
 
-These gradients are used to update the parameters and reduce the loss during training.
+These gradients help the network learn by determining how its parameters should be adjusted to reduce prediction errors.
 
-### 6. Weight Updates
+### 6. Weight and Bias Updates
 
-A basic gradient descent update is:
+Gradient descent updates the network parameters in the direction that reduces the loss.
+
+The weight update rule is:
 
 \[
 W_{\text{new}} = W_{\text{old}} - \eta \frac{\partial L}{\partial W}
@@ -92,17 +98,36 @@ W_{\text{new}} = W_{\text{old}} - \eta \frac{\partial L}{\partial W}
 
 Where:
 
-- \(W\) is the weight matrix.
-- \(\eta\) is the learning rate.
-- \(L\) is the loss function.
+- \(W\) represents the weights.
+- \(\eta\) represents the learning rate.
+- \(L\) represents the loss function.
+- \(\frac{\partial L}{\partial W}\) represents the gradient of the loss with respect to the weights.
 
-The same principle applies to bias updates.
+### 7. Model Training and Evaluation
 
-### 7. Model Evaluation
+The network is trained by repeating forward propagation, loss calculation, backpropagation, and parameter updates.
 
-The trained network should be evaluated on data that was not used for training. Depending on the task, metrics may include accuracy, precision, recall, F1-score, or mean squared error.
+The trained model should be evaluated using suitable metrics such as accuracy, precision, recall, F1-score, or mean squared error, depending on the task.
 
-**Note:** The exact architecture, activation functions, optimizer, dataset, and evaluation results should be documented according to the actual notebook implementation.
+The exact architecture, dataset, training configuration, and evaluation results should be documented according to the notebook's actual implementation.
+
+## 📓 Google Colab Notebook
+
+The complete project implementation is available in Google Colab.
+
+**[Open ANN Implementation Notebook](https://colab.research.google.com/drive/1VljPJCDnxdEust8XCMrSoOCy0iJDQ-Hy?usp=sharing)**
+
+You can access the notebook to explore the code and execute the implementation.
+
+### How to Access the Notebook
+
+1. Open the Google Colab link above.
+2. Sign in to your Google account if required.
+3. Select **File → Save a copy in Drive** to create an editable copy.
+4. Run the notebook cells sequentially.
+5. Upload the required dataset if prompted.
+
+*Note: Notebook access depends on the sharing permissions configured by the owner.*
 
 ## 🛠️ Technologies Used
 
@@ -110,21 +135,24 @@ The trained network should be evaluated on data that was not used for training. 
 - NumPy
 - Pandas
 - Matplotlib
-- Jupyter Notebook / Google Colab
+- Jupyter Notebook
+- Google Colab
 
-Include only the libraries actually used in the notebook.
+Only the libraries actually used in the notebook should be retained in this list.
 
-## 🚀 How to Run
+## 🚀 How to Run the Project
 
 ### Option 1: Google Colab
 
-1. Open the notebook in Google Colab.
-2. Upload the required dataset, if applicable.
-3. Run the notebook cells sequentially.
+1. Open the [ANN Implementation Notebook](https://colab.research.google.com/drive/1VljPJCDnxdEust8XCMrSoOCy0iJDQ-Hy?usp=sharing).
+2. Save a copy to your Google Drive if necessary.
+3. Upload the required dataset, if applicable.
+4. Execute the notebook cells in order.
+5. Review the implementation and outputs.
 
 ### Option 2: Run Locally
 
-Clone the repository:
+Clone the GitHub repository:
 
 ```bash
 git clone YOUR_GITHUB_REPOSITORY_URL
@@ -134,29 +162,32 @@ cd YOUR_REPOSITORY_NAME
 Install the required libraries:
 
 ```bash
-pip install numpy pandas matplotlib jupyter
+python -m pip install numpy pandas matplotlib jupyter
 ```
 
-Start Jupyter Notebook:
+Launch Jupyter Notebook:
 
 ```bash
-jupyter notebook
+python -m notebook
 ```
 
-Open the ANN notebook and run the cells in order.
+Open the notebook and execute the cells sequentially.
+
+Additional libraries may be required depending on the actual notebook imports.
 
 ## 📚 Learning Outcomes
 
-Through this project, the following concepts can be explored:
+This project provides practical exposure to:
 
 - Artificial Neural Network architecture.
 - Forward propagation and activation functions.
-- Loss calculation and gradient descent.
-- Backpropagation and the chain rule.
+- Loss functions and gradient descent.
+- Backpropagation and gradient calculation.
 - Weight and bias optimization.
-- Training and evaluation of neural networks.
-- Mathematical foundations of deep learning.
+- Neural network training and evaluation.
+- The mathematical foundations of deep learning.
 
 ## 📄 License
 
-For educational purposes. Add an appropriate open-source license if you wish to permit reuse under specific terms.
+This project is intended for educational and learning purposes. An appropriate open-source license can be added if redistribution or reuse is permitted.
+
